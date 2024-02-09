@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mapsproject/home.dart';
+import 'package:mapsproject/features/checkOut/Presentation/views/checkout.dart';
+import 'package:mapsproject/features/checkOut/Presentation/views/paymentDetails.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +13,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: 'checkout',
+      routes: {
+        'checkout': (context) => checkout(),
+        'paymentDetails': (context) => paymentDetails()
+      },
     );
   }
 }
