@@ -1,10 +1,9 @@
-import 'package:checkout_payment_ui/Features/checkout/presentation/views/widgets/payment_method_item.dart';
+import 'package:mapsproject/Features/checkout/presentation/views/widgets/payment_method_item.dart';
 import 'package:flutter/material.dart';
 
 class PaymentMethodsListView extends StatefulWidget {
-  const PaymentMethodsListView({super.key, required this.updatePaymentMethod});
+  const PaymentMethodsListView({super.key});
 
-  final Function({required int index}) updatePaymentMethod;
   @override
   State<PaymentMethodsListView> createState() => _PaymentMethodsListViewState();
 }
@@ -30,7 +29,6 @@ class _PaymentMethodsListViewState extends State<PaymentMethodsListView> {
                 onTap: () {
                   activeIndex = index;
                   setState(() {});
-                  widget.updatePaymentMethod(index: activeIndex);
                 },
                 child: PaymentMethodItem(
                   isActive: activeIndex == index,
