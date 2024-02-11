@@ -1,28 +1,27 @@
+import 'package:checkout_payment_ui/Features/checkout/presentation/views/my_cart_view.dart';
+import 'package:checkout_payment_ui/core/utils/api_keys.dart';
 import 'package:flutter/material.dart';
-import 'package:mapsproject/features/checkOut/Presentation/views/checkout.dart';
-import 'package:mapsproject/features/checkOut/Presentation/views/paymentDetails.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 void main() {
-  runApp(const MyApp());
+  Stripe.publishableKey = ApiKeys.puplishableKey;
+
+  runApp(const CheckoutApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class CheckoutApp extends StatelessWidget {
+  const CheckoutApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      initialRoute: 'checkout',
-      routes: {
-        'checkout': (context) => checkout(),
-        'paymentDetails': (context) => paymentDetails()
-      },
+      home: MyCartView(),
     );
   }
 }
+
+// PaymentIntentModel create payment intent(amount , currency , customerId)
+// keySecret createEphemeralKey( customerId)
+// initPaymentSheet (merchantDisplayName , intentClientSecret , ephemeralKeySecret)
+// presentPaymentSheet()

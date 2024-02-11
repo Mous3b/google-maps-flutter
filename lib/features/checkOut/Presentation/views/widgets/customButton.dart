@@ -12,8 +12,8 @@ class customButton extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15), // Set the border radius
       ),
-      color: Color(0xff34A853),
-      onPressed: () {},
+      color: const Color(0xff34A853),
+      onPressed: onPressed,
       child: Text(
         "Complete Payment",
         style: StylesText.textstyle22,
